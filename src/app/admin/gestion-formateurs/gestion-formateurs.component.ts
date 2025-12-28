@@ -71,10 +71,18 @@ export class GestionFormateursComponent implements OnInit {
 
   deleteFormateur(row: any) {
     if(confirm('Êtes-vous sûr de vouloir supprimer ce formateur? 🗑️')) {
-      this.api.deleteFormateur(row.id)
+      const formateurId = row.id;
+      if (!formateurId) {
+        alert("Erreur: ID de formateur manquant");
+        return;
+      }
+      this.api.deleteFormateur(formateurId)
         .subscribe(res => {
           alert("Formateur supprimé ✓");
           this.getAllFormateurs();
+        }, err => {
+          alert("Erreur lors de la suppression du formateur");
+          console.error(err);
         })
     }
   }

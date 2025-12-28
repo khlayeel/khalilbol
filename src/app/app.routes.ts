@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { RechercheFormationsComponent } from './recherche-formations/recherche-formations.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
-import { GestionCandidatsComponent } from './admin/gestion-candidats/gestion-candidats.component';
 import { GestionFormateursComponent } from './admin/gestion-formateurs/gestion-formateurs.component';
 import { GestionCategoriesComponent } from './admin/gestion-categories/gestion-categories.component';
 import { GestionFormationsComponent } from './admin/gestion-formations/gestion-formations.component';
@@ -20,12 +19,11 @@ export const routes: Routes = [
     path: 'admin-space',
     component: AdminLayoutComponent,
     children: [
-      { path: 'candidats', component: GestionCandidatsComponent },
       { path: 'formateurs', component: GestionFormateursComponent },
       { path: 'categories', component: GestionCategoriesComponent },
       { path: 'formations', component: GestionFormationsComponent },
       { path: 'sessions', component: GestionSessionsComponent },
-      { path: '', redirectTo: 'candidats', pathMatch: 'full' }
+      { path: '', redirectTo: 'formateurs', pathMatch: 'full' }
     ]
   }
 ];

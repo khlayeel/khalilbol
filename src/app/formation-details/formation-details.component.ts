@@ -23,6 +23,7 @@ export class FormationDetailsComponent implements OnInit {
   inscriptionForm!: FormGroup;
   selectedSessionId: string = '';
   showInscriptionModal: boolean = false;
+  selectedSessionFormateurs: Formateur[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -96,10 +97,33 @@ export class FormationDetailsComponent implements OnInit {
     }
   }
 
-  openInscriptionModal(sessionId: string) {
+  async openInscriptionModal(sessionId: string) {
     this.selectedSessionId = sessionId;
     this.showInscriptionModal = true;
     this.inscriptionForm.reset();
+    
+    // Récupérer les formateurs de la session sélectionnée
+    const sessionDetail = this.sessionsWithDetails.find(s => s.session.id === sessionId);
+    if (sessionDetail && sessionDetail.formateurs) {
+      this.selectedSessionFormateurs = sessionDetail.formateurs;
+    } else {
+      // Si les formateurs ne sont pas encore chargés, les charger
+      const session = this.sessions.find(s => s.id === sessionId);
+      if (session && session.formateurIds && session.formateurIds.length > 0) {
+        try {
+          const formateurPromises = session.formateurIds.map(id => 
+            firstValueFrom(this.api.getFormateur(id))
+          );
+          const formateurs = await Promise.all(formateurPromises);
+          this.selectedSessionFormateurs = formateurs.filter(f => f !== undefined) as Formateur[];
+        } catch (error) {
+          console.error('Error loading formateurs:', error);
+          this.selectedSessionFormateurs = [];
+        }
+      } else {
+        this.selectedSessionFormateurs = [];
+      }
+    }
   }
 
   closeInscriptionModal() {

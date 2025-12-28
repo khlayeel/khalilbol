@@ -1,44 +1,161 @@
+/* ============================================
+   ADMIN LAYOUT - Design moderne avec sidebar
+   ============================================ */
+
 .admin-container {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  flex-direction: column;
 }
 
+/* ============================================
+   ADMIN HEADER - Header moderne avec glassmorphism
+   ============================================ */
 .admin-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  box-shadow: var(--shadow-xl);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  margin-bottom: var(--spacing-md);
 }
 
 .logo h1 {
-  margin: 0 0 1rem 0;
-  font-size: 1.8rem;
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo h1::before {
+  content: '⚡';
+  font-size: 1.2em;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ADMIN NAVIGATION - Navigation moderne
+   ============================================ */
+.admin-nav {
+  margin-top: var(--spacing-md);
 }
 
 .admin-nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-sm);
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
 }
 
+.admin-nav li {
+  position: relative;
+}
+
 .admin-nav li a {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  transition: background 0.3s ease;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
   display: block;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.admin-nav li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left var(--transition-base);
+}
+
+.admin-nav li a:hover::before,
+.admin-nav li a.active::before {
+  left: 0;
 }
 
 .admin-nav li a:hover,
 .admin-nav li a.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.admin-nav li a.active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+}
+
+.admin-nav li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: white;
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   ADMIN MAIN CONTENT - Zone de contenu
+   ============================================ */
 .admin-main {
-  padding: 2rem;
+  padding: var(--spacing-xl);
+  flex: 1;
+  animation: fadeIn var(--transition-base);
 }
 
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .admin-header {
+    padding: var(--spacing-md);
+  }
+  
+  .admin-nav ul {
+    gap: var(--spacing-xs);
+  }
+  
+  .admin-nav li a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  .admin-main {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-nav ul {
+    flex-direction: column;
+  }
+  
+  .admin-nav li a {
+    width: 100%;
+    text-align: center;
+  }
+}

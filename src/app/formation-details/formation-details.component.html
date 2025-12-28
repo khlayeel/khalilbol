@@ -83,6 +83,15 @@
     </div>
     
     <form [formGroup]="inscriptionForm" (ngSubmit)="submitInscription()">
+      <div class="form-group" *ngIf="selectedSessionFormateurs.length > 0">
+        <label>👨‍🏫 Formateur(s) de cette session:</label>
+        <div class="formateurs-display">
+          <span class="formateur-badge" *ngFor="let formateur of selectedSessionFormateurs">
+            {{ formateur.prenom }} {{ formateur.nom }}
+          </span>
+        </div>
+      </div>
+      
       <div class="form-group">
         <label>Nom *</label>
         <input type="text" formControlName="nom" required>

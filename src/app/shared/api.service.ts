@@ -72,8 +72,20 @@ export class ApiService {
   }
 
   deleteFormateur(id: string): Observable<any> {
+    if (!id) {
+      throw new Error('ID de formateur manquant');
+    }
     const formateurs = this.getItems<Formateur>(this.STORAGE_KEYS.FORMATEURS);
-    const filtered = formateurs.filter(f => f.id !== id);
+    const initialLength = formateurs.length;
+    const filtered = formateurs.filter(f => {
+      // Comparaison stricte pour éviter les problèmes de type
+      return String(f.id) !== String(id);
+    });
+    
+    if (filtered.length === initialLength) {
+      console.warn(`Formateur avec l'ID ${id} non trouvé`);
+    }
+    
     this.setItems(this.STORAGE_KEYS.FORMATEURS, filtered);
     return of({ success: true }).pipe(delay(100));
   }
@@ -242,8 +254,20 @@ export class ApiService {
   }
 
   deleteCategorie(id: string): Observable<any> {
+    if (!id) {
+      throw new Error('ID de catégorie manquant');
+    }
     const categories = this.getItems<Categorie>(this.STORAGE_KEYS.CATEGORIES);
-    const filtered = categories.filter(c => c.id !== id);
+    const initialLength = categories.length;
+    const filtered = categories.filter(c => {
+      // Comparaison stricte pour éviter les problèmes de type
+      return String(c.id) !== String(id);
+    });
+    
+    if (filtered.length === initialLength) {
+      console.warn(`Catégorie avec l'ID ${id} non trouvée`);
+    }
+    
     this.setItems(this.STORAGE_KEYS.CATEGORIES, filtered);
     return of({ success: true }).pipe(delay(100));
   }

@@ -56,10 +56,18 @@ export class GestionCategoriesComponent implements OnInit {
 
   deleteCategorie(row: any) {
     if(confirm('Êtes-vous sûr de vouloir supprimer cette catégorie? 🗑️')) {
-      this.api.deleteCategorie(row.id)
+      const categorieId = row.id;
+      if (!categorieId) {
+        alert("Erreur: ID de catégorie manquant");
+        return;
+      }
+      this.api.deleteCategorie(categorieId)
         .subscribe(res => {
           alert("Catégorie supprimée ✓");
           this.getAllCategories();
+        }, err => {
+          alert("Erreur lors de la suppression de la catégorie");
+          console.error(err);
         })
     }
   }
