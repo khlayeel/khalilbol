@@ -34,10 +34,7 @@
   gap: var(--spacing-sm);
 }
 
-.page-header h2::before {
-  content: '📁';
-  font-size: 1.2em;
-}
+
 
 .btn-add {
   background: var(--primary-gradient);

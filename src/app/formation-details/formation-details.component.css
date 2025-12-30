@@ -1,6 +1,4 @@
-/* ============================================
-   FORMATION DETAILS - Design moderne et détaillé
-   ============================================ */
+
 
 .details-container {
   max-width: 1400px;
@@ -9,9 +7,7 @@
   animation: fadeIn var(--transition-slow);
 }
 
-/* ============================================
-   FORMATION HEADER - En-tête avec gradient
-   ============================================ */
+
 .formation-header {
   display: flex;
   justify-content: space-between;
@@ -391,11 +387,10 @@
   background: var(--bg-secondary);
 }
 
-/* ============================================
-   MODAL STYLES - Styles de modal
-   ============================================ */
+
 .modal-overlay {
   position: fixed;
+  overflow: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -459,6 +454,7 @@
 
 .form-group {
   margin-bottom: var(--spacing-lg);
+  height:60px;
 }
 
 .form-group label {
@@ -551,9 +547,7 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+
 @media (max-width: 768px) {
   .details-container {
     padding: var(--spacing-md);

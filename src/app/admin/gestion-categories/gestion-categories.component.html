@@ -1,6 +1,6 @@
 <div class="gestion-container">
   <div class="page-header">
-    <h2>📂 Gestion des Catégories</h2>
+    <h2>Gestion des Catégories</h2>
     <button class="btn-add" (click)="clickAddCategorie()">
       ➕ Ajouter une Catégorie
     </button>
@@ -34,11 +34,11 @@
   </div>
 
   <div class="no-categories" *ngIf="filteredCategorieData?.length === 0">
-    <p>📂 Aucune catégorie trouvée</p>
+    <p> Aucune catégorie trouvée</p>
   </div>
 </div>
 
-<!-- Modal Formulaire -->
+
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">

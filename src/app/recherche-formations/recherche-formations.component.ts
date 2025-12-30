@@ -19,7 +19,7 @@ export class RechercheFormationsComponent implements OnInit {
 
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getAllFormations();
   }
 
@@ -38,15 +38,15 @@ export class RechercheFormationsComponent implements OnInit {
     }
 
     this.filteredFormations = this.formations.filter((formation: Formation) => {
-      // Recherche dans les tags
+  
       const matchesTags = formation.tags && formation.tags.length > 0 && formation.tags.some(tag => 
         tag.toLowerCase().includes(term)
       );
       
-      // Recherche dans le titre
+     
       const matchesTitre = formation.titre && formation.titre.toLowerCase().includes(term);
       
-      // Recherche dans la description
+  
       const matchesDescription = formation.description && formation.description.toLowerCase().includes(term);
       
       return matchesTags || matchesTitre || matchesDescription;

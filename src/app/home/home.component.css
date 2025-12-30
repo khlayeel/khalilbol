@@ -1,6 +1,4 @@
-/* ============================================
-   HOME COMPONENT - DESIGN MODERNE & ORIGINAL
-   ============================================ */
+
 
 .home-container {
   max-width: 1400px;
@@ -9,9 +7,6 @@
   animation: fadeIn var(--transition-slow);
 }
 
-/* ============================================
-   HERO SECTION - Design avec effet glassmorphism
-   ============================================ */
 .hero-section {
   text-align: center;
   padding: var(--spacing-2xl) var(--spacing-lg);
@@ -72,9 +67,7 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================================
-   INTRO SECTION - Card moderne avec effet hover
-   ============================================ */
+
 .intro-section {
   background: var(--bg-primary);
   padding: var(--spacing-xl);
@@ -117,11 +110,7 @@
   gap: var(--spacing-sm);
 }
 
-.intro-section h2::before {
-  content: '✨';
-  font-size: 1.5em;
-  animation: pulse 2s ease-in-out infinite;
-}
+
 
 .intro-section p {
   color: var(--text-secondary);
@@ -129,9 +118,7 @@
   font-size: clamp(1rem, 1.5vw, 1.15rem);
 }
 
-/* ============================================
-   CATEGORIES SECTION - Grid moderne
-   ============================================ */
+
 .categories-section {
   margin-bottom: var(--spacing-xl);
 }
@@ -166,9 +153,6 @@
   animation: fadeIn var(--transition-slow) 0.2s backwards;
 }
 
-/* ============================================
-   CATEGORY CARD - Design avec effet 3D
-   ============================================ */
 .category-card {
   background: var(--bg-primary);
   padding: var(--spacing-xl);
@@ -243,9 +227,7 @@
   border: 2px dashed var(--border-color);
 }
 
-/* ============================================
-   CTA SECTION - Call to action moderne
-   ============================================ */
+
 .cta-section {
   text-align: center;
   padding: var(--spacing-2xl) var(--spacing-lg);
@@ -307,9 +289,7 @@
   transform: translateY(-2px) scale(1.02);
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+
 @media (max-width: 768px) {
   .home-container {
     padding: var(--spacing-md);

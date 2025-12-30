@@ -33,12 +33,12 @@
         
         <div class="formation-info">
           <div class="info-item">
-            <span class="label">⏱️ Charge horaire:</span>
+            <span class="label"> Charge horaire:</span>
             <span class="value">{{ formation.chargeHoraire }} heures</span>
           </div>
           
           <div class="tags-section" *ngIf="formation.tags && formation.tags.length > 0">
-            <span class="label">🏷️ Mots-clés:</span>
+            <span class="label"> Mots-clés:</span>
             <div class="tags">
               <span class="tag" *ngFor="let tag of formation.tags">{{ tag }}</span>
             </div>

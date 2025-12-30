@@ -21,7 +21,9 @@ export class GestionCategoriesComponent implements OnInit {
   showAddButton: boolean = true;
   showModal: boolean = false;
 
-  constructor(private formbuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formbuilder: FormBuilder, private api: ApiService) {
+    //injection de depandance tinjicti service mteek fel parametre mta el constructeur
+   }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({

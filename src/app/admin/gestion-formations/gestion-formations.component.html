@@ -1,6 +1,6 @@
 <div class="gestion-container">
   <div class="page-header">
-    <h2>📚 Gestion des Formations</h2>
+    <h2> Gestion des Formations</h2>
     <button class="btn-add" (click)="clickAddFormation()">
       ➕ Ajouter une Formation
     </button>
@@ -21,7 +21,7 @@
         <h3>{{ formation.titre }}</h3>
         <p class="description">{{ formation.description || 'Aucune description' }}</p>
         <div class="formation-details">
-          <span class="badge">⏱️ {{ formation.chargeHoraire }}h</span>
+          <span class="badge"> {{ formation.chargeHoraire }}h</span>
           <span class="badge">{{ formation.niveauDifficulte }}</span>
         </div>
         <div class="tags" *ngIf="formation.tags?.length > 0">
@@ -41,7 +41,7 @@
   </div>
 
   <div class="no-formations" *ngIf="filteredFormationData?.length === 0">
-    <p>📚 Aucune formation trouvée</p>
+    <p> Aucune formation trouvée</p>
   </div>
 </div>
 

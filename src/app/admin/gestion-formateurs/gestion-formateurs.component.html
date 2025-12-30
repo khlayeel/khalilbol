@@ -1,6 +1,6 @@
 <div class="gestion-container">
   <div class="page-header">
-    <h2>👨‍🏫 Gestion des Formateurs</h2>
+    <h2>Gestion des Formateurs</h2>
     <button class="btn-add" (click)="clickAddFormateur()">
       ➕ Ajouter un Formateur
     </button>
@@ -23,11 +23,11 @@
       
       <div class="formateur-info">
         <h3>{{ formateur.prenom }} {{ formateur.nom }}</h3>
-        <p class="email">📧 {{ formateur.email }}</p>
-        <p class="phone">📞 {{ formateur.telephone || 'N/A' }}</p>
-        <p class="cin">🆔 CIN: {{ formateur.numeroCarteIdentite }}</p>
+        <p class="email"> {{ formateur.email }}</p>
+        <p class="phone"> {{ formateur.telephone || 'N/A' }}</p>
+        <p class="cin"> CIN: {{ formateur.numeroCarteIdentite }}</p>
         <p class="specialites" *ngIf="formateur.specialites?.length > 0">
-          🎯 Spécialités: {{ formateur.specialites.join(', ') }}
+           Spécialités: {{ formateur.specialites.join(', ') }}
         </p>
         
         <div class="formateur-actions">
@@ -43,11 +43,11 @@
   </div>
 
   <div class="no-formateurs" *ngIf="filteredFormateurData?.length === 0">
-    <p>👨‍🏫 Aucun formateur trouvé</p>
+    <p> Aucun formateur trouvé</p>
   </div>
 </div>
 
-<!-- Modal Formulaire -->
+
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">

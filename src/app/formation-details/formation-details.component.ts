@@ -74,7 +74,7 @@ export class FormationDetailsComponent implements OnInit {
         isFull: false
       };
 
-      // Charger les formateurs
+     
       if (session.formateurIds && session.formateurIds.length > 0) {
         const formateurPromises = session.formateurIds.map(id => 
           firstValueFrom(this.api.getFormateur(id))
@@ -88,7 +88,7 @@ export class FormationDetailsComponent implements OnInit {
         }
       }
 
-      // Compter les inscriptions
+
       this.api.getInscriptionsBySession(session.id).subscribe(inscriptions => {
         sessionDetail.inscriptionsCount = inscriptions ? inscriptions.length : 0;
         sessionDetail.isFull = sessionDetail.inscriptionsCount >= 15;
@@ -102,7 +102,7 @@ export class FormationDetailsComponent implements OnInit {
     this.showInscriptionModal = true;
     this.inscriptionForm.reset();
     
-    // Récupérer les formateurs de la session sélectionnée
+
     const sessionDetail = this.sessionsWithDetails.find(s => s.session.id === sessionId);
     if (sessionDetail && sessionDetail.formateurs) {
       this.selectedSessionFormateurs = sessionDetail.formateurs;

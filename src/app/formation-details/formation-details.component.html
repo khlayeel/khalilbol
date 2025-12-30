@@ -10,17 +10,17 @@
 
   <div class="formation-content">
     <div class="info-section">
-      <h2>📋 Description</h2>
+      <h2> Description</h2>
       <p>{{ formation.description }}</p>
 
       <div class="info-grid">
         <div class="info-item">
-          <span class="label">⏱️ Charge horaire:</span>
+          <span class="label"> Charge horaire:</span>
           <span class="value">{{ formation.chargeHoraire }} heures</span>
         </div>
 
         <div class="tags-section" *ngIf="formation.tags && formation.tags.length > 0">
-          <span class="label">🏷️ Mots-clés:</span>
+          <span class="label"> Mots-clés:</span>
           <div class="tags">
             <span class="tag" *ngFor="let tag of formation.tags">{{ tag }}</span>
           </div>
@@ -28,12 +28,12 @@
       </div>
 
       <button class="btn-programme" (click)="downloadProgramme()">
-        📄 Télécharger le Programme (PDF)
+        Télécharger le Programme (PDF)
       </button>
     </div>
 
     <div class="sessions-section">
-      <h2>📅 Sessions à venir</h2>
+      <h2> Sessions à venir</h2>
       
       <div class="sessions-list" *ngIf="sessionsWithDetails.length > 0">
         <div class="session-card" *ngFor="let sessionDetail of sessionsWithDetails">
@@ -50,7 +50,7 @@
           </p>
 
           <div class="formateurs-section" *ngIf="sessionDetail.formateurs.length > 0">
-            <span class="label">👨‍🏫 Formateur(s):</span>
+            <span class="label"> Formateur(s):</span>
             <div class="formateurs-list">
               <span class="formateur-name" *ngFor="let formateur of sessionDetail.formateurs">
                 {{ formateur.prenom }} {{ formateur.nom }}
@@ -74,17 +74,15 @@
   </div>
 </div>
 
-<!-- Modal d'inscription -->
 <div class="modal-overlay" *ngIf="showInscriptionModal" (click)="closeInscriptionModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h3>📝 Inscription à la session</h3>
+      <h3> Inscription à la session</h3>
       <button class="close-btn" (click)="closeInscriptionModal()">×</button>
     </div>
     
     <form [formGroup]="inscriptionForm" (ngSubmit)="submitInscription()">
       <div class="form-group" *ngIf="selectedSessionFormateurs.length > 0">
-        <label>👨‍🏫 Formateur(s) de cette session:</label>
         <div class="formateurs-display">
           <span class="formateur-badge" *ngFor="let formateur of selectedSessionFormateurs">
             {{ formateur.prenom }} {{ formateur.nom }}
@@ -93,18 +91,15 @@
       </div>
       
       <div class="form-group">
-        <label>Nom *</label>
-        <input type="text" formControlName="nom" required>
+        <input type="text" placeholder="Nom *" formControlName="nom" required>
       </div>
       
       <div class="form-group">
-        <label>Prénom *</label>
-        <input type="text" formControlName="prenom" required>
+        <input type="text" placeholder="Prénom *" formControlName="prenom" required>
       </div>
       
       <div class="form-group">
-        <label>Email *</label>
-        <input type="email" formControlName="email" required>
+        <input type="email" placeholder="Email *" formControlName="email" required>
       </div>
       
       <div class="modal-footer">

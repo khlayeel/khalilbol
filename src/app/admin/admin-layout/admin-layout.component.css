@@ -1,6 +1,4 @@
-/* ============================================
-   ADMIN LAYOUT - Design moderne avec sidebar
-   ============================================ */
+
 
 .admin-container {
   min-height: 100vh;
@@ -9,9 +7,6 @@
   flex-direction: column;
 }
 
-/* ============================================
-   ADMIN HEADER - Header moderne avec glassmorphism
-   ============================================ */
 .admin-header {
   background: var(--primary-gradient);
   color: white;
@@ -39,15 +34,7 @@
   gap: var(--spacing-sm);
 }
 
-.logo h1::before {
-  content: '⚡';
-  font-size: 1.2em;
-  animation: pulse 2s ease-in-out infinite;
-}
 
-/* ============================================
-   ADMIN NAVIGATION - Navigation moderne
-   ============================================ */
 .admin-nav {
   margin-top: var(--spacing-md);
 }
@@ -118,18 +105,12 @@
   border-radius: var(--radius-full);
 }
 
-/* ============================================
-   ADMIN MAIN CONTENT - Zone de contenu
-   ============================================ */
 .admin-main {
   padding: var(--spacing-xl);
   flex: 1;
   animation: fadeIn var(--transition-base);
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
 @media (max-width: 768px) {
   .admin-header {
     padding: var(--spacing-md);
